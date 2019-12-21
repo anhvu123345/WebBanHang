@@ -21,13 +21,13 @@ public class ProductController {
 	@GetMapping(value = "/product")
 	public String productList(Model model) {
 		model.addAttribute("productList", productService.findAll());
-		return "/product";
+		return "product/list";
 	}
 
 	@GetMapping(value = "/product/add")
 	public String productAdd(Model model) {
 		model.addAttribute("product", new Product());
-		return "";
+		return "product/form";
 	}
 
 	@PostMapping(value = "/product/save")
