@@ -32,23 +32,23 @@ public class ProductController {
 
 	@PostMapping(value = "/product/save")
 	public String productSave(Model model, @Valid Product product, BindingResult result) {
-		if (result.hasErrors()) {
-			return "";
-		}
+//		if (result.hasErrors()) {
+//			return "redirect:/product/add";
+//		}
 		productService.save(product);
-		return "";
+		return "redirect:/product";
 	}
 
 	@GetMapping(value = "/product/edit/{id}")
 	public String productEdit(Model model, @PathVariable Long id) {
 		model.addAttribute("product", productService.findById(id));
-		return "";
+		return "product/form";
 	}
 
-	@PostMapping(value = "/product/delete/{id}")
+	@GetMapping(value = "/product/delete/{id}")
 	public String productDelete(Model model, @PathVariable Long id) {
 		productService.delete(id);
-		return "";
+		return "redirect:/product";
 	}
 
 }

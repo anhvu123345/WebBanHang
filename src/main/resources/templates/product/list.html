@@ -2,22 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="product/layout :: head"></head>
 <body>
-<nav th:replace="product/layout :: header"></nav>
-<div class="container main-content list">
+	<nav th:replace="product/layout :: header"></nav>
+	<div class="container main-content list">
 		<div th:if="${success}"
 			class="row alert alert-success alert-dismissible">
 			<button type="button" class="close" data-dismiss="alert"
 				aria-label="Close">
 				<span aria-hidden="true">×</span>
 			</button>
-			<span th:text="${success}" ></span>
+			<span th:text="${success}"></span>
 		</div>
 		<div class="row">
-			<a th:href="@{/product/add}" class="btn btn-success pull-left">
-				<span class="glyphicon glyphicon-plus"></span> Add new product
+			<a th:href="@{/product/add}" class="btn btn-success pull-left"> <span
+				class="glyphicon glyphicon-plus"></span> Add new product
 			</a>
-			<form class="form-inline pull-right" action="#"
-				 method="GET">
+			<form class="form-inline pull-right" action="#" method="GET">
 				<div class="form-group">
 					<input type="text" class="form-control" name="s"
 						placeholder="Type employee name..." />
@@ -39,20 +38,23 @@
 							<th>Price</th>
 							<th>Image</th>
 							<th>createDate</th>
+							<th>Buy</th>
 							<th>Edit</th>
 							<th>Delete</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr  th:each="contact : ${productList}">
+						<tr th:each="contact : ${productList}">
 							<td th:text="${contact.code}"></td>
 							<td th:text="${contact.name}"></td>
 							<td th:text="${contact.price}"></td>
 							<td th:text="${contact.image}"></td>
 							<td th:text="${contact.createDate}"></td>
-							<td><a><span
+							<td><a th:href="@{/cart/{id}(id=${contact.code})}"><span
+									class="glyphicon glyphicon-euro"></span></a></td>
+							<td><a th:href="@{/product/edit/{id}(id=${contact.code})}"><span
 									class="glyphicon glyphicon-pencil"></span></a></td>
-							<td><a><span
+							<td><a th:href="@{/product/delete/{id}(id=${contact.code})}"><span
 									class="glyphicon glyphicon-trash"></span></a></td>
 						</tr>
 					</tbody>

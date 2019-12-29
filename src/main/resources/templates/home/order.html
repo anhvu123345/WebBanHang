@@ -6,25 +6,25 @@
 
     <div class="container main-content form">
         <div class="row">
-          <form action="#" th:action="@{/product/save}" th:object="${product}"
+          <form action="#" 
 		    method="POST" novalidate="novalidate">
-		    <input type="hidden" th:field="*{code}"/>
+		    <input type="hidden" />
 		    <div class="form-group">
 		        <label>Name</label> 
-		        <input type="text" class="form-control" th:field="*{name}"
+		        <input type="text" class="form-control" 
 		            /> 
 		    </div>
 		    <div class="form-group">
 		        <label>Price</label> 
-		        <input type="text" class="form-control" th:field="*{price}" />
+		        <input type="text" class="form-control"  />
 		    </div>
 		    <div class="form-group">
 		        <label>Image</label> 
-		        <input type="text" class="form-control" th:field="*{image}"  />
+		        <input type="text" class="form-control"   />
 		    </div>
 		    <div class="form-group">
 		        <label>createDate</label> 
-		        <input type="date" class="form-control" th:field="*{createDate}"  />
+		        <input type="date" class="form-control"   />
 		    </div>
 		    <button type="submit" class="btn btn-primary">Save</button>
 		</form>
